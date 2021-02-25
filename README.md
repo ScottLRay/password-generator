@@ -1,4 +1,5 @@
 # password-generator
+makeing a basic password generator with java script
 
 ## User Story
 
@@ -27,3 +28,8 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
+
+## Github link
+https://github.com/ScottLRay/password-generator
+## Git pages link
+https://scottlray.github.io/password-generator/
