@@ -1,15 +1,8 @@
-
 // WHEN I click the button to generate a password
 // THEN I am presented with a series of prompts for password criteria
 
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
-
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
 
 // WHEN all prompts are answered
 // THEN a password is generated that matches the selected criteria
@@ -76,58 +69,64 @@ var upperCharacters = [
 var numberCharacters = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
-var password = [];
-
-function generatePassword() {
-//   var newArray = arr();
-  var Password = [];
-    for (var i = 0; i < array.length; i++) {
-        var password = math.floor(math.random() * newArray.length - 1) + 1;
-        passwword.push(newArry[randomindex]);
-    }
-    return password.join("");
-
-  
-}
-function writePassword() {
-
-// need to add prompts and confirms
-var aNumber = window.prompt("how long to do want the password?")
-    if(aNumber <8 || aNumber > 128){
-        alert("please enter number 8 through 128");
-        return;
-    }
-    else if (NaN){
-        alert("please enter valid numbers")
-        return;
-    }
-var upperCharactersQuestion = confirm("have upper case characters?")
-var lowerCharactersQuestion = confirm("have low case characters?")
-var specialCharactersQuestion = confirm("have special characters?")
-var numberCharactersQuestion = confirm("have numbers?")
-
-// if (upperCharactersQuestion){password.push(upperCharacter);
-// }
-// if (lowerCharactersQuestion){password.push(lowerCharacter);
-// }
-// if (specialCharactersQuestion){password.push(specialCharacter);
-// }
-// if (numberCharactersQuestion){password.push(numberCharacter);
-// }
-// else if(!upperCharacters && !lowerCharacters && !specialCharacters && !numberCharacters){
-//     alert("please select at one character type")
-// }
-    var password = generatePassword();
-
-    var passwordText = document.querySelector("#password");
 
 
-passwordText.value = password;
-
-}
-
-
+// Retrieve a reference to the button with an id of generate
 var generateBtn = document.querySelector("#generate");
-
-// // // Add event listener to generate button
+// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
+function generatePassword() {
+  // Prompt user for password length
+   // Make sure that password length between 8 and 128(inclusive)
+  var aNumber = window.prompt("how long to do want the password?");
+    if (aNumber < 8 || aNumber > 128) {
+      alert("please enter number 8 through 128");
+      return;
+    } else if (NaN) {
+      alert("please enter valid numbers");
+      return;
+    }
+
+  //   Using a confirm prompt the user for special characters
+  var specialCharactersQuestion = confirm("have special characters?");
+  //   Using a confirm prompt the user for numeric characters
+  var numberCharactersQuestion = confirm("have numbers?");
+  //   Using a confirm prompt the user for uppercase characters
+  var upperCharactersQuestion = confirm("have upper case characters?");
+  //   Using a confirm prompt the user for lowercase characters
+  var lowerCharactersQuestion = confirm("have low case characters?");
+  // Algo for password generation goes below
+  var password = "";
+
+  for (var i = 0; i < aNumber; i++){
+    if(specialCharactersQuestion === true){
+      password += getRandomItem(specialCharacters)
+    }
+    if(numberCharactersQuestion === true){
+      password += getRandomItem(numberCharacters)
+    }
+    if(upperCharactersQuestion === true){
+      password += getRandomItem(upperCharacters)
+    }
+    if(lowerCharactersQuestion === true){
+      password += getRandomItem(lowerCharacters)
+    }}
+  // return the build password
+  return;
+}
+
+// Retrieve a random item from the provided array
+function getRandomItem(arr) {
+  // Generate a random index from 0 to the length - 1 of our array
+  var randomIndex = Math.random() * arr.length;
+  // round down our random index
+  randomIndex = Math.floor(randomIndex);
+  // return the random item based off of our random index
+  return arr[randomIndex];
+}
