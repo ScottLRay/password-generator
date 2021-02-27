@@ -118,7 +118,7 @@ function generatePassword() {
       password += getRandomItem(lowerCharacters)
     }}
   // return the build password
-  return;
+  return(password);
 }
 
 // Retrieve a random item from the provided array
@@ -128,5 +128,6 @@ function getRandomItem(arr) {
   // round down our random index
   randomIndex = Math.floor(randomIndex);
   // return the random item based off of our random index
+  console.log(getRandomItem)
   return arr[randomIndex];
 }
