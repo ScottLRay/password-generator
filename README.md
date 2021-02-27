@@ -29,6 +29,9 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
+## Screenshot
+(./Assets/03-javascript-homework-demo.png)
+
 ## Github link
 https://github.com/ScottLRay/password-generator
 ## Git pages link

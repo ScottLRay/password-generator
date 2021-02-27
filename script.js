@@ -10,7 +10,7 @@
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
 
-var lowcharacters = [
+var lowCharacters = [
   "a",
   "b",
   "c",
@@ -69,7 +69,7 @@ var upperCharacters = [
 var numberCharacters = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
-
+var aNumber = ""
 
 // Retrieve a reference to the button with an id of generate
 var generateBtn = document.querySelector("#generate");
@@ -79,12 +79,14 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  password = password.slice(0, aNumber)
   passwordText.value = password;
 }
+
 function generatePassword() {
   // Prompt user for password length
    // Make sure that password length between 8 and 128(inclusive)
-  var aNumber = window.prompt("how long to do want the password?");
+  aNumber = window.prompt("how long to do want the password?");
     if (aNumber < 8 || aNumber > 128) {
       alert("please enter number 8 through 128");
       return;
@@ -100,7 +102,7 @@ function generatePassword() {
   //   Using a confirm prompt the user for uppercase characters
   var upperCharactersQuestion = confirm("have upper case characters?");
   //   Using a confirm prompt the user for lowercase characters
-  var lowerCharactersQuestion = confirm("have low case characters?");
+  var lowCharactersQuestion = confirm("have low case characters?");
   // Algo for password generation goes below
   var password = "";
 
@@ -114,8 +116,8 @@ function generatePassword() {
     if(upperCharactersQuestion === true){
       password += getRandomItem(upperCharacters)
     }
-    if(lowerCharactersQuestion === true){
-      password += getRandomItem(lowerCharacters)
+    if(lowCharactersQuestion === true){
+      password += getRandomItem(lowCharacters)
     }}
   // return the build password
   return(password);
