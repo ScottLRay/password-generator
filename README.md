@@ -30,7 +30,9 @@ THEN the password is either displayed in an alert or written to the page
 ```
 
 ## Screenshot
-(./Assets/03-javascript-homework-demo.png)
+![The Password Generator application displays a red button to "Generate Password".](assests\javascript-homework.png)
+
+
 
 ## Github link
 https://github.com/ScottLRay/password-generator
