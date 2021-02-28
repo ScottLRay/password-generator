@@ -1,14 +1,4 @@
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
 
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
 
 var lowCharacters = [
   "a",
@@ -86,12 +76,12 @@ function writePassword() {
 function generatePassword() {
   // Prompt user for password length
    // Make sure that password length between 8 and 128(inclusive)
-  aNumber = window.prompt("how long to do want the password?");
+  aNumber = window.prompt("how long do you want the password?");
     if (aNumber < 8 || aNumber > 128) {
       alert("please enter number 8 through 128");
       return;
     } else if (NaN) {
-      alert("please enter valid numbers");
+      alert("please enter valid numbers between 8 and 128");
       return;
     }
 
